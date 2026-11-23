@@ -240,4 +240,4 @@ For your BCA minor project presentation to external examiners, follow this 4-ste
 
 - **Project:** Online Smart Face Recognition Attendance Management System
 - **Qualification:** Bachelor of Computer Applications (BCA) - 5th Semester Minor Project
-- **Engineered by:** Antigravity AI & Senior Full-Stack Engineering Team
+- **Engineered by:** Senior Full-Stack Engineering Team
