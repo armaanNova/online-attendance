@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Project Practical File - Smart Face Attendance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Courier+Prime&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #e2e8f0;
+            color: #1a202c;
+            font-family: 'Times New Roman', serif;
+            font-size: 14pt;
+            line-height: 1.6;
+        }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm 20mm 20mm 25mm;
+            margin: 20mm auto;
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            box-sizing: border-box;
+            position: relative;
+        }
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+            }
+            .page {
+                width: 100%;
+                margin: 0;
+                padding: 20mm;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            color: #0f172a;
+        }
+        .cover-border {
+            border: 4px double #1e3a8a;
+            padding: 20px;
+            height: 100%;
+            min-height: 247mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+        pre, code {
+            font-family: 'Courier Prime', monospace;
+            font-size: 9.5pt;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        table {
+            font-size: 11pt;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #475569;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+        }
+        .signature-line {
+            margin-top: 60px;
+            border-top: 1px solid #334155;
+            width: 220px;
+            display: inline-block;
+            text-align: center;
+            font-size: 11pt;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Print Button -->
+    <div class="no-print position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+        <button class="btn btn-primary btn-lg shadow-lg fw-bold" onclick="window.print()">
+            🖨️ Print / Save as PDF
+        </button>
+    </div>
+
+    <!-- PAGE 1: TITLE / COVER PAGE -->
+    <div class="page">
+        <div class="cover-border">
+            <div>
+                <p style="font-size: 15pt; letter-spacing: 1px; margin-bottom: 5px;">A PROJECT REPORT ON</p>
+                <h1 style="font-size: 23pt; text-transform: uppercase; color: #1e3a8a; margin-top: 15px; margin-bottom: 25px; line-height: 1.3;">
+                    ONLINE SMART FACE RECOGNITION ATTENDANCE MANAGEMENT SYSTEM
+                </h1>
+                <p style="font-size: 13pt; font-style: italic; margin-bottom: 25px;">
+                    Submitted in partial fulfillment of the requirements for the award of the degree of
+                </p>
+                <h2 style="font-size: 18pt; font-weight: bold; margin-bottom: 5px;">
+                    BACHELOR OF COMPUTER APPLICATIONS (BCA)
+                </h2>
+                <p style="font-size: 14pt; font-weight: bold;">Semester: 5th Semester &bull; Session: 2026-2027</p>
+            </div>
+
+            <div style="margin: 30px 0;">
+                <div style="width: 110px; height: 110px; border: 2px dashed #94a3b8; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 10pt; color: #64748b;">
+                    [College Logo]
+                </div>
+            </div>
+
+            <div>
+                <table style="border: none; width: 100%; margin: 0;">
+                    <tr style="border: none;">
+                        <td style="border: none; width: 50%; vertical-align: top; text-align: left;">
+                            <strong style="font-size: 12pt;">Guided By:</strong><br>
+                            <span style="font-size: 13pt; font-weight: bold;">[Internal Guide Name]</span><br>
+                            <span style="font-size: 11pt;">Assistant Professor</span><br>
+                            <span style="font-size: 11pt;">Dept. of Computer Applications</span>
+                        </td>
+                        <td style="border: none; width: 50%; vertical-align: top; text-align: right;">
+                            <strong style="font-size: 12pt;">Submitted By:</strong><br>
+                            <span style="font-size: 13pt; font-weight: bold;">[Arman Mishra]</span><br>
+                            <span style="font-size: 11pt;">University Roll No: [Roll No]</span><br>
+                            <span style="font-size: 11pt;">Class: BCA 5th Semester</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="margin-top: 40px; border-top: 1px solid #cbd5e1; padding-top: 15px;">
+                    <h3 style="font-size: 15pt; margin-bottom: 3px;">DEPARTMENT OF COMPUTER APPLICATIONS</h3>
+                    <p style="font-size: 13pt; margin-bottom: 0;">[YOUR COLLEGE / INSTITUTE NAME HERE]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: CERTIFICATE -->
+    <div class="page">
+        <h2 class="text-center text-uppercase fw-bold mb-4" style="text-decoration: underline;">Certificate</h2>
+        <p style="text-align: justify; margin-top: 40px;">
+            This is to certify that the project entitled <strong>"ONLINE SMART FACE RECOGNITION ATTENDANCE MANAGEMENT SYSTEM"</strong> submitted by <strong>[Arman Mishra]</strong>, bearing University Roll Number <strong>[Your Roll Number]</strong>, in partial fulfillment of the requirements for the award of the degree of <strong>Bachelor of Computer Applications (BCA)</strong>, is an authentic record of independent project work carried out under my supervision and guidance.
+        </p>
+        <p style="text-align: justify;">
+            To the best of my knowledge and belief, the material embodied in this project report has not been submitted previously to any other university or institute for the award of any degree or diploma.
+        </p>
+
+        <div style="margin-top: 100px;">
+            <table style="border: none; width: 100%;">
+                <tr style="border: none;">
+                    <td style="border: none; width: 50%;">
+                        <div class="signature-line">
+                            <strong>Project Supervisor</strong><br>
+                            Dept. of Computer Applications
+                        </div>
+                    </td>
+                    <td style="border: none; width: 50%; text-align: right;">
+                        <div class="signature-line">
+                            <strong>Head of Department (HOD)</strong><br>
+                            Dept. of Computer Applications
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 80px; text-align: center;">
+                <div class="signature-line">
+                    <strong>External Examiner</strong><br>
+                    Date of Examination: ____________
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: ABSTRACT & SYSTEM SPECIFICATIONS -->
+    <div class="page">
+        <h2 class="text-center text-uppercase fw-bold mb-4" style="text-decoration: underline;">Project Abstract</h2>
+        <p style="text-align: justify;">
+            The <strong>Online Smart Face Recognition Attendance Management System</strong> is a computerized, contactless biometric web application engineered to completely eliminate proxy attendance (buddy punching) in college environments. The system utilizes modern Computer Vision techniques powered by OpenCV (Haar Cascade detection, CLAHE lighting equalization, and Histogram of Oriented Gradients feature extraction) combined with a high-throughput Python FastAPI backend and MySQL relational database.
+        </p>
+
+        <h3 class="fw-bold mt-4" style="font-size: 15pt;">1. System Requirement Specification (SRS)</h3>
+        
+        <h4 style="font-size: 13pt; margin-top: 15px;">Hardware Requirements:</h4>
+        <ul>
+            <li><strong>Processor:</strong> Intel Core i3 / i5 / i7 or AMD Ryzen processor</li>
+            <li><strong>RAM:</strong> 4 GB Minimum (8 GB Recommended)</li>
+            <li><strong>Webcam:</strong> Standard integrated or USB 720p/1080p webcam</li>
+            <li><strong>Storage:</strong> 500 MB free hard disk space</li>
+        </ul>
+
+        <h4 style="font-size: 13pt; margin-top: 15px;">Software Requirements:</h4>
+        <ul>
+            <li><strong>Operating System:</strong> Windows 10 / Windows 11 (64-bit), Linux, or macOS</li>
+            <li><strong>Runtime:</strong> Python 3.10 to 3.14</li>
+            <li><strong>Backend Framework:</strong> FastAPI & Uvicorn ASGI Web Server</li>
+            <li><strong>Database:</strong> MySQL Server 8.0+ / MariaDB (XAMPP) with SQLite fallback</li>
+            <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Bootstrap 5.3, Chart.js</li>
+        </ul>
+
+        <h3 class="fw-bold mt-4" style="font-size: 15pt;">2. Database Schema Summary (`face_attendance_db`)</h3>
+        <table>
+            <tr><th>Table Name</th><th>Primary Key</th><th>Foreign Key</th><th>Purpose</th></tr>
+            <tr><td><code>admins</code></td><td><code>admin_id</code></td><td>None</td><td>Admin login credentials and hashed passwords</td></tr>
+            <tr><td><code>students</code></td><td><code>student_id</code></td><td>None</td><td>Student profiles, Roll numbers, and Course data</td></tr>
+            <tr><td><code>face_embeddings</code></td><td><code>embedding_id</code></td><td><code>student_id</code></td><td>2020-dimensional normalized facial vectors</td></tr>
+            <tr><td><code>attendance</code></td><td><code>attendance_id</code></td><td><code>student_id</code></td><td>Daily log with exact time, status, and UNIQUE(student_id, date)</td></tr>
+            <tr><td><code>users</code></td><td><code>user_id</code></td><td><code>student_id</code></td><td>Role-based authentication records</td></tr>
+        </table>
+    </div>
+
+    <!-- PAGE 4: ALGORITHMIC WORKFLOW -->
+    <div class="page">
+        <h2 class="text-center text-uppercase fw-bold mb-4" style="text-decoration: underline;">Algorithms & Formulations</h2>
+
+        <h3 style="font-size: 14pt;">1. Viola-Jones Face Detection (Haar Cascades)</h3>
+        <p style="text-align: justify;">
+            The system detects human faces using OpenCV's pre-trained Haar Cascades. Features are computed in constant time using an <em>Integral Image</em>, and weak classifiers selected via AdaBoost quickly discard background regions.
+        </p>
+
+        <h3 style="font-size: 14pt;">2. Lighting Normalization (CLAHE)</h3>
+        <p style="text-align: justify;">
+            To handle variable webcam lighting, <strong>Contrast Limited Adaptive Histogram Equalization</strong> divides the face into \(8 \times 8\) tiles and clips local histograms at \(2.5\) before redistributing contrast, preventing over-amplified noise.
+        </p>
+
+        <h3 style="font-size: 14pt;">3. Biometric Feature Extraction (HOG Descriptor)</h3>
+        <p style="text-align: justify;">
+            The cropped face is resized to \(128 \times 128\) pixels. Spatial gradients (\(G_x, G_y\)) and orientation bins generate a 1,764-dimensional structural vector combined with a 256-dimensional spatial intensity grid, yielding a 2,020-dimensional vector normalized via L2 norm:
+        </p>
+        <pre>norm = sqrt(sum(v_i^2))
+v_normalized = v / norm</pre>
+
+        <h3 style="font-size: 14pt;">4. Cosine Similarity Matching</h3>
+        <p style="text-align: justify;">
+            Given query vector \(\mathbf{A}\) and stored database vector \(\mathbf{B}\), the metric is evaluated as:
+        </p>
+        <pre>Cosine Similarity(A, B) = dot_product(A, B) / (||A|| * ||B||) = dot_product(A, B)</pre>
+        <ul>
+            <li><strong>Similarity &ge; 0.70:</strong> Face Verified &bull; Status: Present</li>
+            <li><strong>Similarity &lt; 0.70:</strong> Face Rejected &bull; "Face Not Recognized. Please Register First."</li>
+            <li><strong>Second scan on same date:</strong> "Attendance Already Marked Today."</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 5: CORE PYTHON SOURCE CODE -->
+    <div class="page">
+        <h2 class="text-center text-uppercase fw-bold mb-4" style="text-decoration: underline;">Core Source Code</h2>
+
+        <h4 style="font-size: 12pt; font-weight: bold;">File: backend/face_recognition/recognition.py</h4>
+        <pre>import numpy as np
+DEFAULT_THRESHOLD = 0.70
+DUPLICATE_THRESHOLD = 0.86
+
+def calculate_cosine_similarity(vec_a: np.ndarray, vec_b: np.ndarray) -> float:
+    norm_a = np.linalg.norm(vec_a)
+    norm_b = np.linalg.norm(vec_b)
+    if norm_a == 0 or norm_b == 0:
+        return 0.0
+    return float(np.dot(vec_a, vec_b) / (norm_a * norm_b))
+
+def find_matching_student(query_embedding, registered_database, threshold=DEFAULT_THRESHOLD):
+    if not registered_database:
+        return None, 0.0, False
+    best_match_id = None
+    best_similarity = -1.0
+    for record in registered_database:
+        similarity = calculate_cosine_similarity(query_embedding, record["embedding"])
+        if similarity > best_similarity:
+            best_similarity = similarity
+            best_match_id = record["student_id"]
+    is_match = (best_similarity >= threshold) and (best_match_id is not None)
+    return best_match_id, best_similarity, is_match</pre>
+
+        <h4 style="font-size: 12pt; font-weight: bold; margin-top: 15px;">File: backend/routes/attendance.py (Attendance Verification & Duplicate Prevention)</h4>
+        <pre>@router.post("/mark", response_model=schemas.AttendanceMarkResponse)
+def mark_face_attendance(req: schemas.AttendanceMarkRequest, db: Session = Depends(get_db)):
+    frame = decode_base64_image(req.image_base64)
+    face_crop, bbox, conf = detect_face(frame, min_size=60)
+    if face_crop is None:
+        return schemas.AttendanceMarkResponse(success=False, status_code="NO_FACE_DETECTED", message="No face detected.")
+
+    query_embedding = extract_embedding(face_crop)
+    registered_records = db.query(models.FaceEmbedding).all()
+    registered_db = [{"student_id": r.student_id, "embedding": deserialize_embedding(r.embedding_vector)} for r in registered_records]
+
+    matched_id, score, is_match = find_matching_student(query_embedding, registered_db)
+    if not is_match or matched_id is None:
+        return schemas.AttendanceMarkResponse(success=False, status_code="UNRECOGNIZED", message="Face Not Recognized. Please Register First.")
+
+    student = db.query(models.Student).filter(models.Student.student_id == matched_id).first()
+    today = datetime.date.today()
+
+    # Duplicate Attendance Guard
+    existing = db.query(models.Attendance).filter(models.Attendance.student_id == student.student_id, models.Attendance.date == today).first()
+    if existing:
+        return schemas.AttendanceMarkResponse(success=False, status_code="ALREADY_MARKED", message="Attendance Already Marked Today.", student_id=student.student_id, full_name=student.full_name, roll_number=student.roll_number, time=existing.time.strftime("%I:%M:%S %p"))
+
+    # Log New Attendance
+    new_att = models.Attendance(student_id=student.student_id, date=today, time=datetime.datetime.now().time(), status="Present", confidence_score=float(score))
+    db.add(new_att)
+    db.commit()
+    return schemas.AttendanceMarkResponse(success=True, status_code="SUCCESS", message="Attendance Marked Successfully!", student_id=student.student_id, full_name=student.full_name, roll_number=student.roll_number, date=str(today), time=new_att.time.strftime("%I:%M:%S %p"))</pre>
+    </div>
+
+    <!-- PAGE 6: TESTING & VIVA-VOCE QUESTIONS -->
+    <div class="page">
+        <h2 class="text-center text-uppercase fw-bold mb-4" style="text-decoration: underline;">Test Results & Viva Questions</h2>
+
+        <h3 style="font-size: 14pt;">System Test Results Table</h3>
+        <table>
+            <tr><th>Test ID</th><th>Scenario</th><th>Input</th><th>Result</th><th>Status</th></tr>
+            <tr><td>TC-01</td><td>Admin Authentication</td><td>admin / admin123</td><td>JWT token issued, redirect to dashboard</td><td>PASS</td></tr>
+            <tr><td>TC-02</td><td>Face Enrollment</td><td>Webcam snapshot</td><td>2020-d embedding saved into MySQL</td><td>PASS</td></tr>
+            <tr><td>TC-03</td><td>Mark Attendance</td><td>Enrolled Face Scan</td><td>Recognized, logged Present with exact time</td><td>PASS</td></tr>
+            <tr><td>TC-04</td><td>Duplicate Prevention</td><td>Same face scanned twice</td><td>"Attendance Already Marked Today."</td><td>PASS</td></tr>
+            <tr><td>TC-05</td><td>Unrecognized Face</td><td>Unregistered person</td><td>"Face Not Recognized. Please Register First."</td><td>PASS</td></tr>
+            <tr><td>TC-06</td><td>CSV Export</td><td>Click "Export CSV"</td><td>Immediate .csv download</td><td>PASS</td></tr>
+        </table>
+
+        <h3 class="fw-bold mt-4" style="font-size: 14pt;">Viva-Voce Questions & Model Answers</h3>
+        <p><strong>Q1: Why choose FastAPI instead of Django or Flask?</strong><br>
+        <em>Answer:</em> FastAPI is asynchronous (ASGI based on Starlette and Pydantic), executing up to 300% faster than Flask. It natively handles image buffer processing and automatically generates interactive OpenAPI/Swagger docs.</p>
+
+        <p><strong>Q2: Why use Cosine Similarity instead of Euclidean Distance?</strong><br>
+        <em>Answer:</em> Euclidean distance is sensitive to vector magnitude variations caused by ambient lighting changes. Cosine similarity calculates the cosine of the angle between normalized unit vectors, making it scale-invariant, faster ($O(N)$ dot product), and bounded between $-1$ and $+1$.</p>
+
+        <p><strong>Q3: How is duplicate attendance prevented?</strong><br>
+        <em>Answer:</em> Enforced via a MySQL composite unique constraint <code>UNIQUE (student_id, date)</code> and backend logic checking if an entry exists for the current date before inserting.</p>
+    </div>
+
+</body>
+</html>
